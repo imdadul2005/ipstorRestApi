@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="11271" started-at="2018-01-18T19:24:12Z" finished-at="2018-01-18T19:24:23Z">
+    <groups>
+    </groups>
+    <test name="IPSTOR REST API TEST" duration-ms="11271" started-at="2018-01-18T19:24:12Z" finished-at="2018-01-18T19:24:23Z">
+      <class name="com.Freestor.RestAPI.ApiTest">
+        <test-method status="PASS" signature="replicationStatus()[pri:0, instance:com.Freestor.RestAPI.ApiTest@79698539]" name="replicationStatus" duration-ms="11208" started-at="2018-01-18T14:24:12Z" finished-at="2018-01-18T14:24:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- replicationStatus -->
+      </class> <!-- com.Freestor.RestAPI.ApiTest -->
+    </test> <!-- IPSTOR REST API TEST -->
+  </suite> <!-- Suite -->
+</testng-results>

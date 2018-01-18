@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+    <!-- Add listener to TestNG -->
+ <!--   <listeners>
+        <listener class-name="ExReport.ExtentReporterNG"/>
+    </listeners>-->
+    <test name="IPSTOR REST API TEST">
+        <classes>
+           <class name="com.Freestor.RestAPI.ApiTest"></class>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
