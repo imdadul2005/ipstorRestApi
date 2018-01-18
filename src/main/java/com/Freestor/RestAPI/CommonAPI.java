@@ -29,9 +29,9 @@ public class CommonAPI {
 
         if(currentSessionID==null) {
             Response loginResponse = given().header(CommonAPI.header())
-                    .body(loginBody).log().all()
+                    .body(loginBody)
                     .post(ApiResource.postLogin())
-                    .then().log().all().extract().response();
+                    .then().extract().response();
             JsonPath auth =  DataParser.rawToJSON(loginResponse);
             currentSessionID = auth.get("id");
         }
@@ -76,10 +76,7 @@ public class CommonAPI {
         Properties p = property();
         String basedir = p.getProperty("basedir");
         String payload = p.getProperty("payload");
-        System.out.println("Basedir : " + basedir);
-        System.out.println("Payload : " + payload);
         File payloadFile = new File(basedir+"/"+payload);
-        System.out.println(basedir+"/"+payload);
         return payloadFile;
     }
 
