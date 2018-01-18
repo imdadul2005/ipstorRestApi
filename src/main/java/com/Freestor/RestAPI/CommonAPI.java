@@ -1,21 +1,45 @@
 package com.Freestor.RestAPI;
 
 import io.restassured.RestAssured;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.Header;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.apache.commons.io.output.WriterOutputStream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 import static io.restassured.RestAssured.given;
 
 public class CommonAPI {
 
+
+
+
+    public static final Logger logger = LogManager.getLogger(CommonAPI.class.getName());
+
     static String baseURI;
     static String currentSessionID = null;
+
+    public static StringWriter requestWriter;
+    public static PrintStream requestCapture;
+
+    public static StringWriter responseWriter;
+    public static PrintStream responseCapture;
+
+
+    public static void filterlog(){
+        requestWriter = new StringWriter();
+        requestCapture = new PrintStream(new WriterOutputStream(requestWriter));
+
+        responseWriter = new StringWriter();
+        responseCapture = new PrintStream(new WriterOutputStream(responseWriter));
+
+    }
 
 
     public static String getSessionID() throws IOException {
@@ -26,14 +50,19 @@ public class CommonAPI {
         String password = p.getProperty("password");
 
         String loginBody = "{\"server\": \"" +server+"\",\"username\":\"" +username +"\",\"password\":\"" +password +"\"}";
-
+        filterlog();
         if(currentSessionID==null) {
             Response loginResponse = given().header(CommonAPI.header())
                     .body(loginBody)
+                    .filter(new RequestLoggingFilter(requestCapture))
+                    .filter(new ResponseLoggingFilter(responseCapture))
                     .post(ApiResource.postLogin())
                     .then().extract().response();
+            logger.info(loginResponse);
             JsonPath auth =  DataParser.rawToJSON(loginResponse);
             currentSessionID = auth.get("id");
+            logger.info(requestWriter.toString());
+            logger.info(responseCapture.toString());
         }
         return currentSessionID;
 
@@ -51,7 +80,6 @@ public class CommonAPI {
     public static Properties property() throws IOException {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream("target/classes/my.properties");
-                //("src/test/Resource/fss.properties");
         prop.load( fis);
         return prop;
     }
@@ -82,32 +110,36 @@ public class CommonAPI {
 
     public static JsonPath commonGet(String getApi) throws IOException {
         setBaseURI();
+        filterlog();
         Response res = given()
                 .cookie("session_id", getSessionID())
+                .filter(new RequestLoggingFilter(requestCapture))
+                .filter(new ResponseLoggingFilter(responseCapture))
                 .log().all()
                 .get(getApi)
                 .then().extract().response();
+
+        logger.info(requestWriter.toString());
+        logger.info(responseCapture.toString());
+        System.out.println(requestCapture);
         return DataParser.rawToJSON(res);
     }
 
     public static JsonPath commonPost(String postApi, File body) throws IOException {
         setBaseURI();
+        filterlog();
         Response res = given()
                 .cookie("session_id", getSessionID()).contentType("application/json")
                 .body(body)
+                .filter(new RequestLoggingFilter(requestCapture))
+                .filter(new ResponseLoggingFilter(responseCapture))
                 .log().all()
                 .post(postApi)
                 .then().extract().response();
-        return DataParser.rawToJSON(res);
-    }
 
-    public static JsonPath commonPost(String postApi, Map <String,String> param, String body) throws IOException {
-        setBaseURI();
-        Response res = given().cookie("session_id", getSessionID())
-                .params(param)
-                .body(body)
-                .log().uri().post(postApi)
-                .then().extract().response();
+        logger.info(requestWriter.toString());
+        logger.info(responseCapture.toString());
+
         return DataParser.rawToJSON(res);
     }
 

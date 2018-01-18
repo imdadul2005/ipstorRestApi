@@ -1,27 +1,29 @@
 package com.Freestor.RestAPI;
 import io.restassured.path.json.JsonPath;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
-import  io.restassured.RestAssured;
+import static com.Freestor.RestAPI.CommonAPI.*;
 
-import static io.restassured.RestAssured.given;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 
 public class ApiTest {
 
+
+    public static final Logger logger = LogManager.getLogger(ApiTest.class.getName());
+
     @Test
+    public void apiTest() throws IOException {
 
-    public void replicationStatus() throws IOException {
-
-        int runTime = CommonAPI.runTime();
+        int runTime = runTime();
         JsonPath jsonRespond =null;
         int start = 0;
         while(start!=runTime) {
-            if(CommonAPI.type().equalsIgnoreCase("post"))
-                jsonRespond = CommonAPI.commonPost(CommonAPI.uri(), CommonAPI.getPayLoadFile());
-            if (CommonAPI.type().equalsIgnoreCase("get"))
-                jsonRespond= CommonAPI.commonGet(CommonAPI.uri());
+            if(type().equalsIgnoreCase("post"))
+                jsonRespond = commonPost(uri(), getPayLoadFile());
+            if (type().equalsIgnoreCase("get"))
+                jsonRespond= commonGet(uri());
             jsonRespond.prettyPrint();
             start++;
         }

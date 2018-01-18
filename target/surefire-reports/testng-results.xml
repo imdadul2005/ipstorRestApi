@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="11271" started-at="2018-01-18T19:24:12Z" finished-at="2018-01-18T19:24:23Z">
+  <suite name="Suite" duration-ms="10154" started-at="2018-01-18T23:47:16Z" finished-at="2018-01-18T23:47:26Z">
     <groups>
     </groups>
-    <test name="IPSTOR REST API TEST" duration-ms="11271" started-at="2018-01-18T19:24:12Z" finished-at="2018-01-18T19:24:23Z">
+    <test name="IPSTOR REST API TEST" duration-ms="10154" started-at="2018-01-18T23:47:16Z" finished-at="2018-01-18T23:47:26Z">
       <class name="com.Freestor.RestAPI.ApiTest">
-        <test-method status="PASS" signature="replicationStatus()[pri:0, instance:com.Freestor.RestAPI.ApiTest@79698539]" name="replicationStatus" duration-ms="11208" started-at="2018-01-18T14:24:12Z" finished-at="2018-01-18T14:24:23Z">
+        <test-method status="PASS" signature="apiTest()[pri:0, instance:com.Freestor.RestAPI.ApiTest@6a28ffa4]" name="apiTest" duration-ms="10091" started-at="2018-01-18T18:47:16Z" finished-at="2018-01-18T18:47:26Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- replicationStatus -->
+        </test-method> <!-- apiTest -->
       </class> <!-- com.Freestor.RestAPI.ApiTest -->
     </test> <!-- IPSTOR REST API TEST -->
   </suite> <!-- Suite -->
