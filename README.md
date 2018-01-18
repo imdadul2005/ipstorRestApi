@@ -7,7 +7,7 @@ It is Java library that interect with IPStor API. This library can be used for G
 2. Maven
 
 # How to use it ? 
-Below paraments needs to be send when running it from maven,
+Below parameters need to be send when running it from maven,
 1. server
 2. username [if different from default user]
 3. password [if different from default passsword]
