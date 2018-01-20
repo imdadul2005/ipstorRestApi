@@ -21,6 +21,6 @@ Below parameters need to be send when running it from maven,
   mvn test -Dserver=10.8.25.34 -Duri="physicalresource/storagepool"
   mvn test -Dserver=10.8.25.34 -Duri="physicalresource/storagepool" -Dmethod=post -Dpayload=test.json
 
-# Update : Log4j2 is added for loger information
+# Update : Log4j2 is added for logger information
   With the log4j2 added on this module, now all the logs will be saved into /logs/msg.log files. The msg.log file will be rotated.  
   
