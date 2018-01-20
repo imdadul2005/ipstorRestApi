@@ -28,11 +28,7 @@ public class CommonAPI {
 
     public static StringWriter writer;
     public static PrintStream captor;
-
-    public static void filterlog(){
-
-    }
-
+    
     public static Header header(){
         return new Header("Content-Type","application/json");
     }
@@ -77,7 +73,6 @@ public class CommonAPI {
         return payloadFile;
     }
     public static String getSessionID() throws IOException {
-
 
         Properties p = property();
         String server = p.getProperty("server");
