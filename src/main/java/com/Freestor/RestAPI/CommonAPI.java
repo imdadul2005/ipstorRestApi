@@ -72,6 +72,8 @@ public class CommonAPI {
         File payloadFile = new File(basedir+"/"+payload);
         return payloadFile;
     }
+    
+    // This method send a login request to a given server and return its session id 
     public static String getSessionID() throws IOException {
 
         Properties p = property();
@@ -110,17 +112,22 @@ public class CommonAPI {
 
     public static JsonPath commonPost(String postApi, File body) throws IOException {
         setBaseURI();
-        filterlog();
+        String sessionID  = getSessionID();
         Response res = given()
-                .cookie("session_id", getSessionID()).contentType("application/json")
+                .sessionId(sessionID).contentType("application/json")
                 .body(body)
                 .log().all()
                 .post(postApi)
                 .then().extract().response();
-
+        
+        System.out.println(writer.toString());
+        logger.info(writer.toString())
         return DataParser.rawToJSON(res);
     }
-    public static List<String> getParsedStringList(String getAPI,String totalLocation,String ifEnabled, String find) throws IOException {
+    
+    // Below methods are not used for this project, it can be used to parse data from json.
+    
+   /* public static List<String> getParsedStringList(String getAPI,String totalLocation,String ifEnabled, String find) throws IOException {
         JsonPath sanResouce= CommonAPI.commonGet(getAPI);
 
         StringTokenizer tokenizer = new StringTokenizer(ifEnabled, "*");
@@ -155,6 +162,6 @@ public class CommonAPI {
                 sanResourceList.add(sanResouce.getInt(preFind+i+postFind));
         }
         return sanResourceList;
-    }
+    }*/
 
 }
