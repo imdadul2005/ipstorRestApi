@@ -14,11 +14,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <server>10.6.11.113</server>
+    <server>10.8.25.34</server>
     <username>root</username>
     <password>IPStor101</password>
     <repeat>1</repeat>
-    <uri></uri>
+    <uri>physicalresource/physicaladapter</uri>
     <basedir>${project.basedir}</basedir>
     <payload></payload>
     <method>GET</method>
