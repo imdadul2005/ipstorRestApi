@@ -31,6 +31,10 @@ public class ApiTest {
                 jsonRespond = commonPost(uri(), getPayLoadFile());
             if (type().equalsIgnoreCase("get"))
                 jsonRespond= commonGet(uri());
+            if(type().equalsIgnoreCase("delete"))
+                jsonRespond = commonDelete(uri(),getPayLoadFile());
+            if(type().equalsIgnoreCase("put"))
+                jsonRespond = commonPut(uri(),getPayLoadFile());
            //  jsonRespond.prettyPrint();
             start++;
         }

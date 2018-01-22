@@ -19,8 +19,8 @@
     <password>IPStor101</password>
     <repeat>1</repeat>
     <uri>physicalresource/physicaladapter</uri>
-    <basedir>${project.basedir}</basedir>
-    <payload></payload>
+    <basedir>${project.basedir}/testFiles</basedir>
+    <payload>!</payload>
     <method>GET</method>
   </properties>
 

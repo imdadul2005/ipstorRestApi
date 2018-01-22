@@ -9,6 +9,7 @@ import io.restassured.http.Header;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.commons.io.output.WriterOutputStream;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -69,7 +70,10 @@ public class CommonAPI {
         Properties p = property();
         String basedir = p.getProperty("basedir");
         String payload = p.getProperty("payload");
-        File payloadFile = new File(basedir+"/"+payload);
+        File payloadFile;
+
+        payloadFile = new File(basedir+"/"+payload);
+
         return payloadFile;
     }
     
@@ -91,7 +95,6 @@ public class CommonAPI {
                     .extract().response();
             JsonPath auth =  DataParser.rawToJSON(loginResponse);
             currentSessionID = auth.get("id");
-
         }
         return currentSessionID;
 
@@ -100,31 +103,120 @@ public class CommonAPI {
     public static JsonPath commonGet(String getApi) throws IOException {
         setBaseURI();
         String sessionID  = getSessionID();
-        Response res = given().log().all()
-                .sessionId(sessionID)
-                .get(getApi)
-                .then().log().all()
-                .extract().response();
+        Response res;
+        res = given().log().all()
+                    .sessionId(sessionID)
+                    .get(getApi)
+                    .then().log().all()
+                    .extract().response();
+
+        logger.info("**********************************************");
+        logger.info("**************   GET REQUEST   ***************");
+        logger.info("**********************************************");
+        logger.info(writer.toString());
+        System.out.println(writer.toString());
+        return DataParser.rawToJSON(res);
+    }
+
+    public static JsonPath commonDelete(String getApi,File body) throws IOException {
+        setBaseURI();
+        String sessionID  = getSessionID();
+        Response res;
+        System.out.println(StringUtils.isEmpty(getPayLoadFile().getName()));
+        if (getPayLoadFile().getName().equalsIgnoreCase("!")){
+            res = given().log().all()
+                    .sessionId(sessionID)
+                    .delete(getApi)
+                    .then().log().all()
+                    .extract().response();
+        }
+        else {
+            res = given().log().all()
+                    .sessionId(sessionID)
+                    .contentType("application/json")
+                    .body(body)
+                    .delete(getApi)
+                    .then().log().all()
+                    .extract().response();
+        }
+
+        System.out.println(writer.toString());
+        logger.info("*************************************************");
+        logger.info("**************   DELETE REQUEST   ***************");
+        logger.info("*************************************************");
+        logger.info(writer.toString());
+        return DataParser.rawToJSON(res);
+    }
+
+
+    public static JsonPath commonPost(String postApi, File body) throws IOException {
+        setBaseURI();
+        String sessionID  = getSessionID();
+        Response res;
+        if (getPayLoadFile().getName().equalsIgnoreCase("!")){
+            res = given()
+                    .sessionId(sessionID)
+                    .log().all()
+                    .post(postApi)
+                    .then()
+                    .log().all()
+                    .extract().response();
+        }
+        else{
+            res = given()
+                    .sessionId(sessionID)
+                    .contentType("application/json")
+                    .body(body)
+                    .log().all()
+                    .post(postApi)
+                    .then()
+                    .log().all()
+                    .extract().response();
+        }
+
+        logger.info("***********************************************");
+        logger.info("**************   POST REQUEST   ***************");
+        logger.info("***********************************************");
         System.out.println(writer.toString());
         logger.info(writer.toString());
         return DataParser.rawToJSON(res);
     }
 
-    public static JsonPath commonPost(String postApi, File body) throws IOException {
+
+    public static JsonPath commonPut(String postApi, File body) throws IOException {
         setBaseURI();
         String sessionID  = getSessionID();
-        Response res = given()
-                .sessionId(sessionID).contentType("application/json")
-                .body(body)
-                .log().all()
-                .post(postApi)
-                .then().extract().response();
-        
+        Response res;
+        if (getPayLoadFile().getName().equalsIgnoreCase("!")){
+            res = given()
+                    .sessionId(sessionID)
+                    .log().all()
+                    .put(postApi)
+                    .then()
+                    .log().all()
+                    .extract().response();
+        }
+        else{
+            res = given()
+                    .sessionId(sessionID)
+                    .contentType("application/json")
+                    .body(body)
+                    .log().all()
+                    .put(postApi)
+                    .then()
+                    .log().all()
+                    .extract().response();
+        }
+
+        logger.info("***********************************************");
+        logger.info("**************   POST REQUEST   ***************");
+        logger.info("***********************************************");
         System.out.println(writer.toString());
-        logger.info(writer.toString())
+        logger.info(writer.toString());
         return DataParser.rawToJSON(res);
     }
-    
+
+
     // Below methods are not used for this project, it can be used to parse data from json.
     
    /* public static List<String> getParsedStringList(String getAPI,String totalLocation,String ifEnabled, String find) throws IOException {
