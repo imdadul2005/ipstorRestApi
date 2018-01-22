@@ -1,0 +1,549 @@
+17:50:25.414 [main] INFO  com.Freestor.RestAPI.CommonAPI - Request method:	POST
+Request URI:	http://10.8.25.34/ipstor/auth/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "server": "10.8.25.34",
+    "username": "root",
+    "password": "IPStor101"
+}
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: session_id=5cfde532-a0e3-44a7-9374-b834651dbf06;Version=1
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 66
+Date: Mon, 22 Jan 2018 22:50:23 GMT
+
+{
+    "rc": 0,
+    "id": "5cfde532-a0e3-44a7-9374-b834651dbf06",
+    "type": "root"
+}
+Request method:	GET
+Request URI:	http://10.8.25.34/ipstor/physicalresource/physicaladapter
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		session_id=5cfde532-a0e3-44a7-9374-b834651dbf06
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 1290
+Date: Mon, 22 Jan 2018 22:50:26 GMT
+
+{
+    "rc": 0,
+    "data": {
+        "total": 16,
+        "physicaladapters": [
+            {
+                "vendor": "MegaRAID",
+                "id": 0,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 1,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 2,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 3,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 4,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 5,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 6,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 7,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 8,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 9,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 10,
+                "mode": "",
+                "type": "",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "FalconStor",
+                "id": 98,
+                "mode": "",
+                "type": "block",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "QLogic",
+                "id": 100,
+                "mode": "initiator",
+                "type": "fc",
+                "wwpn": "21-00-00-0e-1e-09-97-de",
+                "paths": 80
+            },
+            {
+                "vendor": "QLogic",
+                "id": 101,
+                "mode": "initiator",
+                "type": "fc",
+                "wwpn": "21-00-00-0e-1e-09-97-df",
+                "paths": 80
+            },
+            {
+                "vendor": "QLogic",
+                "id": 102,
+                "mode": "dual",
+                "type": "fc",
+                "wwpn": "20-01-00-0e-1e-30-a1-e0",
+                "paths": 0
+            },
+            {
+                "vendor": "QLogic",
+                "id": 103,
+                "mode": "dual",
+                "type": "fc",
+                "wwpn": "20-01-00-0e-1e-30-a1-e1",
+                "paths": 0
+            }
+        ]
+    }
+}
+
+17:54:32.351 [main] INFO  com.Freestor.RestAPI.CommonAPI - Request method:	POST
+Request URI:	http://10.8.25.34/ipstor/auth/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "server": "10.8.25.34",
+    "username": "root",
+    "password": "IPStor101"
+}
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: session_id=95553ed2-ba30-4aad-8f77-6051f9eb28d0;Version=1
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 66
+Date: Mon, 22 Jan 2018 22:54:30 GMT
+
+{
+    "rc": 0,
+    "id": "95553ed2-ba30-4aad-8f77-6051f9eb28d0",
+    "type": "root"
+}
+Request method:	GET
+Request URI:	http://10.8.25.34/ipstor/physicalresource/physicaladapter
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		session_id=95553ed2-ba30-4aad-8f77-6051f9eb28d0
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 1290
+Date: Mon, 22 Jan 2018 22:54:33 GMT
+
+{
+    "rc": 0,
+    "data": {
+        "total": 16,
+        "physicaladapters": [
+            {
+                "vendor": "MegaRAID",
+                "id": 0,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 1,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 2,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 3,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 4,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 5,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 6,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 7,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 8,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 9,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 10,
+                "mode": "",
+                "type": "",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "FalconStor",
+                "id": 98,
+                "mode": "",
+                "type": "block",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "QLogic",
+                "id": 100,
+                "mode": "initiator",
+                "type": "fc",
+                "wwpn": "21-00-00-0e-1e-09-97-de",
+                "paths": 80
+            },
+            {
+                "vendor": "QLogic",
+                "id": 101,
+                "mode": "initiator",
+                "type": "fc",
+                "wwpn": "21-00-00-0e-1e-09-97-df",
+                "paths": 80
+            },
+            {
+                "vendor": "QLogic",
+                "id": 102,
+                "mode": "dual",
+                "type": "fc",
+                "wwpn": "20-01-00-0e-1e-30-a1-e0",
+                "paths": 0
+            },
+            {
+                "vendor": "QLogic",
+                "id": 103,
+                "mode": "dual",
+                "type": "fc",
+                "wwpn": "20-01-00-0e-1e-30-a1-e1",
+                "paths": 0
+            }
+        ]
+    }
+}
+
+17:57:20.410 [main] INFO  com.Freestor.RestAPI.CommonAPI - Request method:	POST
+Request URI:	http://10.8.25.34/ipstor/auth/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "server": "10.8.25.34",
+    "username": "root",
+    "password": "IPStor101"
+}
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: session_id=a818ff7f-fa01-45c3-a863-f79c8bfab772;Version=1
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 66
+Date: Mon, 22 Jan 2018 22:57:17 GMT
+
+{
+    "rc": 0,
+    "id": "a818ff7f-fa01-45c3-a863-f79c8bfab772",
+    "type": "root"
+}
+Request method:	GET
+Request URI:	http://10.8.25.34/ipstor/physicalresource/physicaladapter
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		session_id=a818ff7f-fa01-45c3-a863-f79c8bfab772
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 1290
+Date: Mon, 22 Jan 2018 22:57:21 GMT
+
+{
+    "rc": 0,
+    "data": {
+        "total": 16,
+        "physicaladapters": [
+            {
+                "vendor": "MegaRAID",
+                "id": 0,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 1,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 2,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 3,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 4,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 5,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 6,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 7,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 8,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 9,
+                "mode": "",
+                "type": "scsi",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "ahci",
+                "id": 10,
+                "mode": "",
+                "type": "",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "FalconStor",
+                "id": 98,
+                "mode": "",
+                "type": "block",
+                "wwpn": "",
+                "paths": 0
+            },
+            {
+                "vendor": "QLogic",
+                "id": 100,
+                "mode": "initiator",
+                "type": "fc",
+                "wwpn": "21-00-00-0e-1e-09-97-de",
+                "paths": 80
+            },
+            {
+                "vendor": "QLogic",
+                "id": 101,
+                "mode": "initiator",
+                "type": "fc",
+                "wwpn": "21-00-00-0e-1e-09-97-df",
+                "paths": 80
+            },
+            {
+                "vendor": "QLogic",
+                "id": 102,
+                "mode": "dual",
+                "type": "fc",
+                "wwpn": "20-01-00-0e-1e-30-a1-e0",
+                "paths": 0
+            },
+            {
+                "vendor": "QLogic",
+                "id": 103,
+                "mode": "dual",
+                "type": "fc",
+                "wwpn": "20-01-00-0e-1e-30-a1-e1",
+                "paths": 0
+            }
+        ]
+    }
+}
+

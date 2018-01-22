@@ -99,8 +99,7 @@ public class CommonAPI {
         return currentSessionID;
 
     }
-
-    public static JsonPath commonGet(String getApi) throws IOException {
+    public static Response commonGet(String getApi) throws IOException {
         setBaseURI();
         String sessionID  = getSessionID();
         Response res;
@@ -110,19 +109,16 @@ public class CommonAPI {
                     .then().log().all()
                     .extract().response();
 
-        logger.info("**********************************************");
-        logger.info("**************   GET REQUEST   ***************");
-        logger.info("**********************************************");
         logger.info(writer.toString());
         System.out.println(writer.toString());
-        return DataParser.rawToJSON(res);
-    }
 
-    public static JsonPath commonDelete(String getApi,File body) throws IOException {
+        return res;
+    }
+    public static Response commonDelete(String getApi,File body) throws IOException {
         setBaseURI();
         String sessionID  = getSessionID();
         Response res;
-        System.out.println(StringUtils.isEmpty(getPayLoadFile().getName()));
+
         if (getPayLoadFile().getName().equalsIgnoreCase("!")){
             res = given().log().all()
                     .sessionId(sessionID)
@@ -141,15 +137,10 @@ public class CommonAPI {
         }
 
         System.out.println(writer.toString());
-        logger.info("*************************************************");
-        logger.info("**************   DELETE REQUEST   ***************");
-        logger.info("*************************************************");
         logger.info(writer.toString());
-        return DataParser.rawToJSON(res);
+        return res;
     }
-
-
-    public static JsonPath commonPost(String postApi, File body) throws IOException {
+    public static Response commonPost(String postApi, File body) throws IOException {
         setBaseURI();
         String sessionID  = getSessionID();
         Response res;
@@ -173,17 +164,11 @@ public class CommonAPI {
                     .log().all()
                     .extract().response();
         }
-
-        logger.info("***********************************************");
-        logger.info("**************   POST REQUEST   ***************");
-        logger.info("***********************************************");
         System.out.println(writer.toString());
         logger.info(writer.toString());
-        return DataParser.rawToJSON(res);
+        return res;
     }
-
-
-    public static JsonPath commonPut(String postApi, File body) throws IOException {
+    public static Response commonPut(String postApi, File body) throws IOException {
         setBaseURI();
         String sessionID  = getSessionID();
         Response res;
@@ -207,13 +192,9 @@ public class CommonAPI {
                     .log().all()
                     .extract().response();
         }
-
-        logger.info("***********************************************");
-        logger.info("**************   POST REQUEST   ***************");
-        logger.info("***********************************************");
         System.out.println(writer.toString());
         logger.info(writer.toString());
-        return DataParser.rawToJSON(res);
+        return res;
     }
 
 

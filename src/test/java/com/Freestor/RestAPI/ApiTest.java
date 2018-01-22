@@ -16,26 +16,28 @@ import java.io.IOException;
 
 public class ApiTest {
 
-
     public static final Logger logger = LogManager.getLogger(ApiTest.class.getName());
 
     @Test
     public void apiTest() throws IOException {
 
         int runTime = CommonAPI.runTime();
+        Response res = null;
         JsonPath jsonRespond = null;
         int start = 0;
 
         while(start!=runTime) {
             if(type().equalsIgnoreCase("post"))
-                jsonRespond = commonPost(uri(), getPayLoadFile());
+                res= commonPost(uri(), getPayLoadFile());
             if (type().equalsIgnoreCase("get"))
-                jsonRespond= commonGet(uri());
+                res= commonGet(uri());
             if(type().equalsIgnoreCase("delete"))
-                jsonRespond = commonDelete(uri(),getPayLoadFile());
+                res= commonDelete(uri(),getPayLoadFile());
             if(type().equalsIgnoreCase("put"))
-                jsonRespond = commonPut(uri(),getPayLoadFile());
-           //  jsonRespond.prettyPrint();
+                res = commonPut(uri(),getPayLoadFile());
+
+            //jsonRespond = DataParser.rawToJSON(res);
+            //  jsonRespond.prettyPrint();
             start++;
         }
     }
