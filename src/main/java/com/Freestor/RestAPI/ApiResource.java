@@ -19,7 +19,7 @@ public class  ApiResource {
     // Get API
 
     public static String getenumAdapters(){return "physicalresource/physicaladapter";}
-    public static String getaAdapter(int adapterID) {return "physicalresource/physicaladapter/"+adapterID;}
+    public static String getPhysicaladapter(int adapterID) {return "physicalresource/physicaladapter/"+adapterID;}
     public static String getClientInitiator (){return "physicalresource/physicaladapter/fcclientinitiators";}
     public static String getFCbasePort(){return "physicalresource/physicaladapter/fcwwpn" ;}
     public static String getEnumPhysicalDevices (){return "physicalresource/physicaldevice";}

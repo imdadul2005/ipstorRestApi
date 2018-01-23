@@ -1,5 +1,6 @@
 package com.Freestor.RestAPI;
 
+import groovy.json.JsonParser;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
@@ -15,27 +16,36 @@ public class PhysicalResourcesTest {
 
     public static final Logger logger = LogManager.getLogger(PhysicalResourcesTest.class.getName());
 
-    @Test
 
+
+    static List<Integer> adapterNumber;
+    @Test
     public void PhysicalResources() throws IOException {
         Response res = CommonAPI.commonGet(ApiResource.getenumAdapters());
         JsonPath getPhyDevices = DataParser.rawToJSON(res);
-        //getPhyDevices.
-        List<String> vendor = getPhyDevices.getList("data.physicaladapters.vendor");
-        List<String> id = getPhyDevices.getList("data.physicaladapters.id");
-        List<String> mode = getPhyDevices.getList("data.physicaladapters.mode");
-        List<String> type = getPhyDevices.getList("data.physicaladapters.type");
-        List<String> wwpn = getPhyDevices.getList("data.physicaladapters.wwpn");
-        List<String> paths = getPhyDevices.getList("data.physicaladapters.paths");
 
-        Assert.assertEquals(vendor.size(),id.size());
-        Assert.assertEquals(mode.size(),type.size());
-        Assert.assertEquals(wwpn.size(),paths.size());
+        logger.info("==================FC PORT REPORT=============================");
+        int size = getPhyDevices.get("data.physicaladapters.size()");
+        adapterNumber = getPhyDevices.getList("data.physicaladapters.id");
 
-        for (String a: wwpn) {
-            if(a.length()>1)
-            System.out.println(a);
+        for(int i = 0; i<size;i ++){
+            String temp = getPhyDevices.getString("data.physicaladapters["+i+"].mode");
+            if(temp.length()>1) {
+                logger.info("FC ID : "+ getPhyDevices.getString("data.physicaladapters["+i+"].id")+ " MODE : "+ temp+" WWPN : "+ getPhyDevices.getString("data.physicaladapters["+i+"].wwpn"));
+            }
         }
 
+            //Check that rest api return rc = 0 and status code is 200;
+            AssertCheck(getPhyDevices,res,200,0);
+
+    }
+
+    @Test(dependsOnMethods = {"PhysicalResources"})
+    public void PhysicalAdapter() throws IOException {
+        for (int x:adapterNumber) {
+            Response res = CommonAPI.commonGet(ApiResource.getPhysicaladapter(x));
+            JsonPath physicalAdapter = DataParser.rawToJSON(res);
+            AssertCheck(physicalAdapter,res,200,0,x);
+        }
     }
 }

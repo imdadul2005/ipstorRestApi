@@ -1,15 +1,13 @@
 package com.Freestor.RestAPI;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
-import io.restassured.path.json.JsonPath;
+import com.jayway.jsonpath.JsonPath;
+
 import io.restassured.response.Response;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 import static com.Freestor.RestAPI.CommonAPI.*;
-import static io.restassured.RestAssured.given;
+
 
 import java.io.IOException;
 
@@ -35,9 +33,6 @@ public class ApiTest {
                 res= commonDelete(uri(),getPayLoadFile());
             if(type().equalsIgnoreCase("put"))
                 res = commonPut(uri(),getPayLoadFile());
-
-            //jsonRespond = DataParser.rawToJSON(res);
-            //  jsonRespond.prettyPrint();
             start++;
         }
     }

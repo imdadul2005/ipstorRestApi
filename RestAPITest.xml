@@ -3,9 +3,9 @@
 <suite name="Suite">
 
     <!-- Add listener to TestNG -->
- <!--   <listeners>
-        <listener class-name="ExReport.ExtentReporterNG"/>
-    </listeners>-->
+    <listeners>
+        <listener class-name="com.Freestor.RestAPI.UseListener"/>
+    </listeners>
     <test name="IPSTOR REST API TEST">
         <classes>
           <!-- <class name="com.Freestor.RestAPI.ApiTest"/>-->
