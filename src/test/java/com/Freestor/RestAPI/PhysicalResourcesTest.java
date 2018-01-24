@@ -19,7 +19,7 @@ public class PhysicalResourcesTest {
 
 
     static List<Integer> adapterNumber;
-    @Test
+    @Test(enabled = false)
     public void PhysicalResources() throws IOException {
         Response res = CommonAPI.commonGet(ApiResource.getenumAdapters());
         JsonPath getPhyDevices = DataParser.rawToJSON(res);
@@ -40,12 +40,23 @@ public class PhysicalResourcesTest {
 
     }
 
-    @Test(dependsOnMethods = {"PhysicalResources"})
+    @Test(enabled = false)//(dependsOnMethods = {"PhysicalResources"})
     public void PhysicalAdapter() throws IOException {
         for (int x:adapterNumber) {
             Response res = CommonAPI.commonGet(ApiResource.getPhysicaladapter(x));
             JsonPath physicalAdapter = DataParser.rawToJSON(res);
+            //Check that rest api return rc = 0 and status code is 200;
             AssertCheck(physicalAdapter,res,200,0,x);
         }
     }
+
+    @Test
+    public void FCclientInitiator() throws IOException {
+
+            Response res = CommonAPI.commonGet(ApiResource.getClientInitiator());
+            JsonPath jp = DataParser.rawToJSON(res);
+            //Check that rest api return rc = 0 and status code is 200;
+            AssertCheck(jp,res,200,0);
+    }
+
 }
