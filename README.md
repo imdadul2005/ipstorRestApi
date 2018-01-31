@@ -1,3 +1,7 @@
+
+Current Build : [![Build status](https://ci.appveyor.com/api/projects/status/github/imdadul2005/ipstorrestapi?svg=true)](https://ci.appveyor.com/api/projects/status/github/imdadul2005/ipstorrestapi)
+
+
 # ipstorRestApi
 
 It is Java library that interact with IPStor API. This library can be used for GET,POST,DELETE,and PUT method. 
