@@ -1,5 +1,5 @@
 
-Current Build : [![Build status](https://ci.appveyor.com/api/projects/status/github/imdadul2005/ipstorrestapi?svg=true)](https://ci.appveyor.com/api/projects/status/github/imdadul2005/ipstorrestapi)
+Current Build [![Build status](https://ci.appveyor.com/api/projects/status/github/imdadul2005/ipstorrestapi?svg=true)](https://ci.appveyor.com/api/projects/status/github/imdadul2005/ipstorrestapi)
 
 
 # ipstorRestApi
