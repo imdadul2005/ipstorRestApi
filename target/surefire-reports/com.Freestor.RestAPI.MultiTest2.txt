@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.Freestor.RestAPI.MultiTest
+Test set: com.Freestor.RestAPI.MultiTest2
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 45.302 s - in com.Freestor.RestAPI.MultiTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.203 s - in com.Freestor.RestAPI.MultiTest2

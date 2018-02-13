@@ -20,12 +20,16 @@
     <repeat>1</repeat>
     <uri>logicalresource/sanresource</uri>
     <basedir>${project.basedir}/testFiles</basedir>
-    <payload>!</payload>
     <method>GET</method>
-    <uri2>logicalresource/replication</uri2>
+    <payload>!</payload>
     <findfor>data.virtualdevices[*].replicationenabled</findfor>
     <get>data.virtualdevices[*].id</get>
     <total>data.total</total>
+
+    <method2>GET</method2>
+    <uri2>none</uri2>
+    <payload2>!</payload2>
+
   </properties>
 
   <build>

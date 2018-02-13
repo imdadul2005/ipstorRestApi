@@ -13,10 +13,10 @@ import java.util.List;
 import static com.Freestor.RestAPI.CommonAPI.*;
 
 
-public class MultiTest {
+public class MultiTest2 {
 
 
-    public static final Logger logger = LogManager.getLogger(MultiTest.class.getName());
+    public static final Logger logger = LogManager.getLogger(MultiTest2.class.getName());
 
     @Test
     public void apiTest() throws IOException {
@@ -31,8 +31,8 @@ public class MultiTest {
         while(start!=runTime) {
 
             jsonRespond = restCall(type(),uri(), getPayLoadFile());
-            List<Integer> getParsedIntgerList= new ArrayList<Integer>();
-            getParsedIntgerList = CommonAPI.getParsedIntgerList(jsonRespond,totalLocation,ifEnabled,get);
+            List<String> getParsedIntgerList= new ArrayList<String>();
+            getParsedIntgerList = CommonAPI.getParsedStringList(jsonRespond,totalLocation,ifEnabled,get);
             logger.info("List of device number "+ getParsedIntgerList.toString());
             if(!uri2().equalsIgnoreCase("none")) {
                 for (int x = 0; x < getParsedIntgerList.size(); x++) {

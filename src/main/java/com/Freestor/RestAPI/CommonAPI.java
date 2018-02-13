@@ -83,6 +83,11 @@ public class CommonAPI {
         Properties p = property();
         return p.getProperty("method");
     }
+
+    public static String type2() throws IOException {
+        Properties p = property();
+        return p.getProperty("method2");
+    }
     public static int runTime() throws IOException {
         Properties p = property();
         return Integer.parseInt(p.getProperty("repeat"));
@@ -95,6 +100,15 @@ public class CommonAPI {
 
         payloadFile = new File(basedir+"/"+payload);
 
+        return payloadFile;
+    }
+
+    public static File getPayLoadFile2() throws IOException {
+        Properties p = property();
+        String basedir = p.getProperty("basedir");
+        String payload = p.getProperty("payload2");
+        File payloadFile;
+        payloadFile = new File(basedir+"/"+payload);
         return payloadFile;
     }
     
@@ -240,8 +254,8 @@ public class CommonAPI {
 
     // Below methods are not used for this project, it can be used to parse data from json.
     
-    public static List<String> getParsedStringList(String getAPI,String totalLocation,String ifEnabled, String find) throws IOException {
-        JsonPath sanResouce= CommonAPI.commonGet(getAPI);
+    public static List<String> getParsedStringList(JsonPath jpath,String totalLocation,String ifEnabled, String find) throws IOException {
+       // JsonPath sanResouce= CommonAPI.commonGet(getAPI);
 
         StringTokenizer tokenizer = new StringTokenizer(ifEnabled, "*");
         String preifEnabled = tokenizer.nextToken();
@@ -252,9 +266,9 @@ public class CommonAPI {
         String postFind= tokenizer2.nextToken();
 
         List<String> sanResourceList = new ArrayList<String>();
-        for(int i = 0; i< sanResouce.getInt(totalLocation);i++){
-            if(sanResouce.getBoolean(preifEnabled+i+postifEnabled))
-              sanResourceList.add(sanResouce.getString(preFind+i+postFind));
+        for(int i = 0; i< jpath.getInt(totalLocation);i++){
+            if(jpath.getBoolean(preifEnabled+i+postifEnabled))
+              sanResourceList.add(jpath.getString(preFind+i+postFind));
         }
         return sanResourceList;
     }
@@ -274,6 +288,7 @@ public class CommonAPI {
             if(jp.getBoolean(preifEnabled+i+postifEnabled))
                 sanResourceList.add(jp.getInt(preFind+i+postFind));
         }
+
         return sanResourceList;
     }
 
