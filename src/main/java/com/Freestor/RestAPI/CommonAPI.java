@@ -58,6 +58,27 @@ public class CommonAPI {
         return p.getProperty("uri");
 
     }
+    public static String uri2() throws IOException {
+        Properties p = property();
+        return p.getProperty("uri2");
+    }
+    //totalLocation,ifEnabled,find
+
+    public static String findFor() throws IOException {
+        Properties p = property();
+        return p.getProperty("findfor");
+    }
+
+    public static String totalLocation() throws IOException {
+        Properties p = property();
+        return p.getProperty("total");
+    }
+    public static String get() throws IOException {
+        Properties p = property();
+        return p.getProperty("get");
+    }
+
+
     public static String type() throws IOException {
         Properties p = property();
         return p.getProperty("method");
@@ -114,7 +135,7 @@ public class CommonAPI {
         logger.info("**************   GET REQUEST   ***************");
         logger.info("**********************************************");
         logger.info(writer.toString());
-        System.out.println(writer.toString());
+        //System.out.println(writer.toString());
         return DataParser.rawToJSON(res);
     }
 
@@ -140,7 +161,7 @@ public class CommonAPI {
                     .extract().response();
         }
 
-        System.out.println(writer.toString());
+        //System.out.println(writer.toString());
         logger.info("*************************************************");
         logger.info("**************   DELETE REQUEST   ***************");
         logger.info("*************************************************");
@@ -177,7 +198,7 @@ public class CommonAPI {
         logger.info("***********************************************");
         logger.info("**************   POST REQUEST   ***************");
         logger.info("***********************************************");
-        System.out.println(writer.toString());
+        //System.out.println(writer.toString());
         logger.info(writer.toString());
         return DataParser.rawToJSON(res);
     }
@@ -211,7 +232,7 @@ public class CommonAPI {
         logger.info("***********************************************");
         logger.info("**************   POST REQUEST   ***************");
         logger.info("***********************************************");
-        System.out.println(writer.toString());
+        //System.out.println(writer.toString());
         logger.info(writer.toString());
         return DataParser.rawToJSON(res);
     }
@@ -219,7 +240,7 @@ public class CommonAPI {
 
     // Below methods are not used for this project, it can be used to parse data from json.
     
-   /* public static List<String> getParsedStringList(String getAPI,String totalLocation,String ifEnabled, String find) throws IOException {
+    public static List<String> getParsedStringList(String getAPI,String totalLocation,String ifEnabled, String find) throws IOException {
         JsonPath sanResouce= CommonAPI.commonGet(getAPI);
 
         StringTokenizer tokenizer = new StringTokenizer(ifEnabled, "*");
@@ -237,8 +258,8 @@ public class CommonAPI {
         }
         return sanResourceList;
     }
-    public static List<Integer> getParsedIntgerList(String getAPI,String totalLocation,String ifEnabled, String find) throws IOException {
-        JsonPath sanResouce= CommonAPI.commonGet(getAPI);
+    public static List<Integer> getParsedIntgerList(JsonPath jp,String totalLocation,String ifEnabled, String find) throws IOException {
+       // JsonPath jp= CommonAPI.commonGet(getAPI);
 
         StringTokenizer tokenizer = new StringTokenizer(ifEnabled, "*");
         String preifEnabled = tokenizer.nextToken();
@@ -249,11 +270,11 @@ public class CommonAPI {
         String postFind= tokenizer2.nextToken();
 
         List<Integer> sanResourceList = new ArrayList<Integer>();
-        for(int i = 0; i< sanResouce.getInt(totalLocation);i++){
-            if(sanResouce.getBoolean(preifEnabled+i+postifEnabled))
-                sanResourceList.add(sanResouce.getInt(preFind+i+postFind));
+        for(int i = 0; i< jp.getInt(totalLocation);i++){
+            if(jp.getBoolean(preifEnabled+i+postifEnabled))
+                sanResourceList.add(jp.getInt(preFind+i+postFind));
         }
         return sanResourceList;
-    }*/
+    }
 
 }

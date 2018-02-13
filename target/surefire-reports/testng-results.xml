@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="358536" started-at="2018-02-13T16:55:36Z" finished-at="2018-02-13T17:01:35Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="358536" started-at="2018-02-13T16:55:36Z" finished-at="2018-02-13T17:01:35Z">
+      <class name="com.Freestor.RestAPI.MultiTest">
+        <test-method status="PASS" signature="apiTest()[pri:0, instance:com.Freestor.RestAPI.MultiTest@5e82df6a]" name="apiTest" duration-ms="358473" started-at="2018-02-13T11:55:36Z" finished-at="2018-02-13T12:01:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiTest -->
+      </class> <!-- com.Freestor.RestAPI.MultiTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

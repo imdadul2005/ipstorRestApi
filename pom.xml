@@ -18,10 +18,14 @@
     <username>root</username>
     <password>IPStor101</password>
     <repeat>1</repeat>
-    <uri>physicalresource/physicaladapter</uri>
+    <uri>logicalresource/sanresource</uri>
     <basedir>${project.basedir}/testFiles</basedir>
     <payload>!</payload>
     <method>GET</method>
+    <uri2>logicalresource/replication</uri2>
+    <findfor>data.virtualdevices[*].replicationenabled</findfor>
+    <get>data.virtualdevices[*].id</get>
+    <total>data.total</total>
   </properties>
 
   <build>
